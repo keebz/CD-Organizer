@@ -3,6 +3,9 @@ require 'album'
 require 'artist'
 
 describe Artist do
+  before do
+    Artist.clear
+  end
   it 'initalizes with a name for the artist' do
   test_artist = Artist.new('prince')
   test_artist.should be_an_instance_of Artist
@@ -18,6 +21,10 @@ describe Artist do
     test_artist.albums.should eq [test_album]
   end
 
+  it "displays the organizer." do
+    test_artist = Artist.new('prince')
+    Artist.list_organizer.should eq [test_artist]
+  end
 end
 
 describe Album do

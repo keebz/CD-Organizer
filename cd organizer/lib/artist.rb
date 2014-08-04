@@ -16,4 +16,8 @@ class Artist
   def Artist.list_organizer
     @@organizer
   end
+
+  def Artist.clear
+    @@organizer = []
+  end
 end
