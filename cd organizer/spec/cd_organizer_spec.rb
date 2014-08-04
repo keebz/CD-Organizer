@@ -17,6 +17,7 @@ describe Artist do
     test_artist.add_album(test_album)
     test_artist.albums.should eq [test_album]
   end
+
 end
 
 describe Album do
