@@ -12,9 +12,19 @@ def main_menu
     add_artist
     puts "artist add"
     list_artist
-    puts "Enter the number of the artist to enter and album name"
-    artist_number = gets.chomp.to_i
-    add_title(artist_number)
+    add_title
+    puts "Press 't' to add another album title or any other button to return to the main menu"
+    choice1 = gets.chomp
+    loop do
+      if choice1 == "t"
+        list_artist
+        add_title
+        puts "Press 't' to add another album title or any other button to return to the main menu"
+        choice1 = gets.chomp
+      else
+        main_menu
+      end
+    end
   elsif user_choice == 's'
     search
   elsif user_choice == 'x'
@@ -33,12 +43,13 @@ end
 
   end
 
-  def add_title(number)
+  def add_title
+    puts "Enter the number of the artist to enter and album name"
+    number = gets.chomp.to_i
     puts "Enter the name of the album"
     name = gets.chomp
     Artist.list_organizer[number -1].add_album(name)
     puts name + " - album added"
-    main_menu
   end
 
   def list_artist
